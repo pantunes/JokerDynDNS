@@ -25,17 +25,17 @@ env.read_env()
 
 
 def job():
-    for h in env.list('DOMAINS'):
-        k = h.split('.')[-2]
+    for host in env.list('DOMAINS'):
+        k = host.split('.')[-2]
         with env.prefixed(k):
             response = requests.get(
                 s.URL.format(
                     username=env('.username'),
                     password=env('.password'),
-                    hostname=h
+                    hostname=host
                 )
             )
-            logger.info(response.text)
+            logger.info(f'{host} - {response.text}')
 
 
 schedule.every(s.INTERVAL_IN_MINUTES).minutes.do(job)
