@@ -1,2 +1,2 @@
 # JokerDynDNS
-Periodic Task to update IP Address with Joker.com DYNA Recoreds
+Periodic Task to update server IP Address in Joker.com DYNA Records
