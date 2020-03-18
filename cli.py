@@ -35,7 +35,7 @@ def job():
                     hostname=host
                 )
             )
-            logger.info(f'{host} - {response.text}')
+            logger.info('{} - {}'.format(host, response.text))
 
 
 schedule.every(s.INTERVAL_IN_MINUTES).minutes.do(job)
