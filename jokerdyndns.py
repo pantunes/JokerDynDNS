@@ -9,6 +9,7 @@ __email__ = "pjmlantunes@gmail.com"
 __version__ = "0.1.0"
 
 import logging
+import os
 import schedule
 import time
 import requests
@@ -17,8 +18,12 @@ from environs import Env
 
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
-
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(message)s',
+    filename='/tmp/{}.log'.format(os.path.basename(__file__).split('.')[0]),
+    filemode='w'
+)
 
 env = Env()
 env.read_env()
