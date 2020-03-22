@@ -38,8 +38,9 @@ def job():
             logger.info('{} - {}'.format(host, response.text))
 
 
-schedule.every(s.INTERVAL_IN_MINUTES).minutes.do(job)
+if __name__ == "__main__":
+    schedule.every(env.int('INTERVAL_IN_MINUTES')).minutes.do(job)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
