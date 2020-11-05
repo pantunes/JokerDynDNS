@@ -47,7 +47,7 @@ if __name__ == "__main__":
     try:
         schedule.every(env.int('INTERVAL_IN_MINUTES')).minutes.do(job)
     except Exception as err:
-        logger.info(f'Raised Exception: {err}')
+        logger.info('Raised Exception: {}'.format(err))
 
     while True:
         schedule.run_pending()
